@@ -1,3 +1,4 @@
+require('webpack')
 module.exports = {
   lintOnSave: true,
   configureWebpack: {

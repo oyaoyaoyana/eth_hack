@@ -1,14 +1,28 @@
 <template>
   <div id="app">
-    <H1>Vue - box</H1>
+    <H1>MeetMe!</H1>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/appointment/new">新規アポ作成</router-link> |
+      <router-link to="/appointment/last">SW ep9 最後のアポ</router-link> |
     </div>
     <router-view/>
+    <hello-metamask/>
   </div>
 </template>
+<script>
+import HelloMetamask from '@/components/HelloMetamask'
 
+export default {
+  components: {
+    'hello-metamask': HelloMetamask
+  },
+  beforeCreate () {
+    console.log('registerWeb3 Action dispatched from meetme-dapp.vue')
+    this.$store.dispatch('registerWeb3')
+  }
+}
+
+</script>
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

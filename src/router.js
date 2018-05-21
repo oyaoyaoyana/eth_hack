@@ -1,32 +1,27 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import About from './views/About.vue'
-import TimeIsMoney from './views/TimeIsMoney.vue'
+import CreateAppointment from './views/CreateAppointment.vue'
+import LastAppointment from './views/LastAppointment.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
+      path: '/appointment/new',
+      name: 'create_appointment',
+      component: CreateAppointment
+    },
+    {
+      path: '/appointment/last',
+      name: 'last_appointment',
+      component: LastAppointment
+    },
+    {
       path: '/',
       name: 'home',
       component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
-    },
-    {
-      path: '/promises',
-      name: 'promises',
-      component: TimeIsMoney
-    },
-    {
-      path: 'promise/new',
-      name: 'promise',
-      component: TimeIsMoney
     }
   ]
 })

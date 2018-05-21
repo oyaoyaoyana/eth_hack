@@ -1,5 +1,5 @@
-var TimeIsMoney = artifacts.require("./TimeIsMoney.sol");
+var MeetMe = artifacts.require("./MeetMe.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(TimeIsMoney);
+  deployer.deploy(MeetMe);
 };

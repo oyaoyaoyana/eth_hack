@@ -16,10 +16,6 @@
 </template>
 
 <script>
-import Web3 from 'web3'
-import contract from 'truffle-contract'
-import artifacts from '../../build/contracts/SimpleStorage.json'
-const SimpleStorage = contract(artifacts)
 
 export default {
   name: 'SimpleStorage',
@@ -33,7 +29,6 @@ export default {
     }
   },
   created() {
-    debugger;
     if (web3.currentProvider !== undefined) {
       console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 Fluyd, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask")
       // Use Mist/MetaMask's provider
