@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       user_count: 0,
-      last_id: 0
+      last_id: 2
     }
   },
   created() {

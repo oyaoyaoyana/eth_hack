@@ -1,11 +1,12 @@
-<template >
+<template>
   <div class="form">
-    <h1>到着しました</h1>
-    <ul>
+    <ul v-if='status == "報告まだです。"'>
+      <p>到着報告</p>
       <li><span>latitude</span><input v-model="latitude" type="number"></li>
       <li><span>longitude</span><input v-model="longitude" type="number"></li>
       <li><button @click="setAchievedToAppointment"type="button" name="button">到着報告する</button></li>
     </ul>
+    <h2>{{status}}</h2>
     <p>{{message}}</p>
   </div>
 </template>
@@ -15,11 +16,15 @@ export default {
   name: 'achieved-to-appointment',
   data() {
     return {
-      id: 0,
+      id: 2,
       latitude: null,
       longitude: null,
-      message: "報告まだ"
+      message: null,
+      status: null
     }
+  },
+  created() {
+    this.checkAchieved()
   },
   methods: {
     setAchievedToAppointment(){
@@ -27,13 +32,25 @@ export default {
         from: this.$store.state.web3.coinbase
       })
       .then((r) => {
-        debugger;
         this.message = "報告 done"
+        this.checkAchieved()
       })
       .catch((e) => {
-        debugger;
         console.log(e)
         this.message = "報告 faile"
+      })
+    },
+    checkAchieved() {
+      this.$store.state.contractInstance().userAcheivedToAppointment.call(this.$store.state.web3.coinbase, 1 )
+      .then((r) => {
+        if (r == true) {
+          this.status = "報告済みです。"
+        } else {
+          this.status = "報告まだです。"
+        }
+      })
+      .catch((e) => {
+        console.log(e)
       })
     }
   }

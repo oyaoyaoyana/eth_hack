@@ -5,6 +5,7 @@
       <ul>
         <li><span>pricing</span><input v-model="pricing" type="number"></li>
         <li><span>meeting_time</span><input v-model="meeting_time" type="date"></li>
+        <el-date-picker v-model="datetime" type="datetime" placeholder="日時を選択してください"></el-date-picker>
         <li><span>latitude</span><input v-model="latitude" type="number"></li>
         <li><span>longitude</span><input v-model="longitude" type="number"></li>
         <li><button @click="createAppointment"type="button" name="button">作成する</button></li>
@@ -41,7 +42,7 @@ export default {
       this.meeting_time = this.convertTimeType(this.meeting_time)
       this.message = "Transaction started";
       debugger;
-      this.$store.state.contractInstance().createAppointment(this.meeting_time, this.latitude, this.longitude, {
+      this.$store.state.contractInstance().createAppointment(1527144020, this.latitude, this.longitude, {
         from: this.$store.state.web3.coinbase,
         value: web3.toWei(this.pricing, 'ether')
       })

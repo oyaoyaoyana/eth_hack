@@ -92,7 +92,7 @@ contract MeetMe {
         /* createdAppointment(appointment.owner, appointment.meeting_time); */
     }
 
-    function getAppointment(uint _id) public view returns(
+    function getAppointment(uint _id) public returns(
       uint id,
       address owner,
       uint meeting_time,
@@ -141,6 +141,17 @@ contract MeetMe {
 
     function setAchievedToAppointment(uint _id, int _lat, int _lng) public requireBeforeDeadline(_id) requireCorrectLocation(_id, _lat, _lng){
         userAcheivedToAppointment[msg.sender][_id] = true;
+    }
+
+    function checkAppointmentAlreadyFinised(uint _id) public view returns(bool) {
+        Appointment memory appointment = appointments[_id];
+        if (appointment.meeting_time <= block.timestamp) {
+            // もう終わった
+            return true;
+        } else {
+            // まだ終わっていない
+            return false;
+        }
     }
 
     function witdrawBet(uint _id) requireAlreadyFinised(_id) {

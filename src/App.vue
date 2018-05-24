@@ -3,7 +3,8 @@
     <H1>MeetMe!</H1>
     <div id="nav">
       <router-link to="/appointment/new">新規アポ作成</router-link> |
-      <router-link to="/appointment/last">SW ep9 最後のアポ</router-link> |
+      <router-link to="/appointment/last">最後のアポ</router-link> |
+      <router-link to="/appointment/withdraw">アポから引き出す</router-link> |
     </div>
     <router-view/>
     <hello-metamask/>
