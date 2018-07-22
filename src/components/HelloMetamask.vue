@@ -1,10 +1,9 @@
 <template>
  <div class='metamask-info'>
-   <h1>Metamaskの情報だよーん</h1>
-   <p>Metamask: {{ web3.isInjected }}</p>
+   <!-- <p>Metamask: {{ web3.isInjected }}</p>
    <p>Network: {{ web3.networkId }}</p>
    <p>Account: {{ web3.coinbase }}</p>
-   <p>Balance: {{ web3.balance }}</p>
+   <p>Balance: {{ web3.balance }}</p> -->
  </div>
 </template>
 

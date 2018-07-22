@@ -1,21 +1,23 @@
 <template>
   <div id="app">
-    <H1>MeetMe!</H1>
+    <H1>ADRETH</H1>
     <div id="nav">
-      <router-link to="/appointment/new">新規アポ作成</router-link> |
-      <router-link to="/appointment/last">最後のアポ</router-link> |
-      <router-link to="/appointment/withdraw">アポから引き出す</router-link> |
+      <router-link to="">ユーザー情報</router-link> |
+      <router-link to="/reward">報酬を受け取る</router-link> |
     </div>
     <router-view/>
     <hello-metamask/>
+    <login-component/>
   </div>
 </template>
 <script>
 import HelloMetamask from '@/components/HelloMetamask'
+import LoginComponent from '@/components/LoginComponent'
 
 export default {
   components: {
-    'hello-metamask': HelloMetamask
+    'hello-metamask': HelloMetamask,
+    'login-component': LoginComponent
   },
   beforeCreate () {
     console.log('registerWeb3 Action dispatched from meetme-dapp.vue')

@@ -1,33 +1,27 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import CreateAppointment from './views/CreateAppointment.vue'
-import LastAppointment from './views/LastAppointment.vue'
-import WithdrawAppointment from './views/WithdrawAppointment.vue'
+import UserShow from './views/UserShow.vue'
+import GetReward from './views/GetReward.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/appointment/new',
-      name: 'create_appointment',
-      component: CreateAppointment
-    },
-    {
-      path: '/appointment/last',
-      name: 'last_appointment',
-      component: LastAppointment
-    },
-    {
-      path: '/appointment/withdraw',
-      name: 'withdraw_appointment',
-      component: WithdrawAppointment
-    },
-    {
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/user/:address',
+      name: 'user_show',
+      component: UserShow
+    },
+    {
+      path: '/reward',
+      name: 'get_reward',
+      component: GetReward
     }
   ]
 })
